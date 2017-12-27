@@ -37,7 +37,7 @@
  */
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
-#define CONFIGURATION_H_VERSION 010100
+#define CONFIGURATION_H_VERSION 010107
 
 //===========================================================================
 //============================= Getting Started =============================
@@ -348,7 +348,7 @@
                                   // Set/get with gcode: M301 E[extruder number, 0-2]
   #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature
                                   // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
-  #define K1 0.95 //smoothing factor within the PID
+  #define PID_K1 0.95 //smoothing factor within the PID
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
@@ -784,10 +784,21 @@
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 200
 
-// If enabled, axes won't move below MIN_POS in response to movement commands.
+// Min software endstops curtail movement below minimum coordinate bounds
 #define MIN_SOFTWARE_ENDSTOPS
-// If enabled, axes won't move above MAX_POS in response to movement commands.
+#if ENABLED(MIN_SOFTWARE_ENDSTOPS)
+  #define MIN_SOFTWARE_ENDSTOP_X
+  #define MIN_SOFTWARE_ENDSTOP_Y
+  #define MIN_SOFTWARE_ENDSTOP_Z
+#endif
+
+// Max software endstops curtail movement above maximum coordinate bounds
 #define MAX_SOFTWARE_ENDSTOPS
+#if ENABLED(MAX_SOFTWARE_ENDSTOPS)
+  #define MAX_SOFTWARE_ENDSTOP_X
+  #define MAX_SOFTWARE_ENDSTOP_Y
+  #define MAX_SOFTWARE_ENDSTOP_Z
+#endif
 
 /**
  * Filament Runout Sensor

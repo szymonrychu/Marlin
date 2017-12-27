@@ -32,7 +32,7 @@
  */
 #ifndef CONFIGURATION_ADV_H
 #define CONFIGURATION_ADV_H
-#define CONFIGURATION_ADV_H_VERSION 010100
+#define CONFIGURATION_ADV_H_VERSION 010107
 
 // @section temperature
 
@@ -929,7 +929,7 @@
  * the hardware SPI interface on your board and define the required CS pins
  * in your `pins_MYBOARD.h` file. (e.g., RAMPS 1.4 uses AUX3 pins `X_CS_PIN 53`, `Y_CS_PIN 49`, etc.).
  */
-//#define HAVE_TMC2130
+#define HAVE_TMC2130
 
 #if ENABLED(HAVE_TMC2130)
 
@@ -1006,9 +1006,9 @@
    * M911 - Report stepper driver overtemperature pre-warn condition.
    * M912 - Clear stepper driver overtemperature pre-warn condition flag.
    */
-  #define AUTOMATIC_CURRENT_CONTROL
+  #define MONITOR_DRIVER_STATUS
 
-  #if ENABLED(AUTOMATIC_CURRENT_CONTROL)
+  #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP          50  // [mA]
     #define AUTO_ADJUST_MAX     1300  // [mA], 1300mA_rms = 1840mA_peak
     #define REPORT_CURRENT_CHANGE
@@ -1049,8 +1049,8 @@
   #define SENSORLESS_HOMING
 
   #if ENABLED(SENSORLESS_HOMING)
-    #define X_HOMING_SENSITIVITY  19
-    #define Y_HOMING_SENSITIVITY  19
+    #define X_HOMING_SENSITIVITY  8
+    #define Y_HOMING_SENSITIVITY  8
   #endif
 
   /**
@@ -1064,7 +1064,7 @@
    *   stepperX.interpolate(0); \
    * }
    */
-  #define  TMC2130_ADV() {  }
+  #define  TMC_ADV() {  }
 
 #endif // HAVE_TMC2130
 
