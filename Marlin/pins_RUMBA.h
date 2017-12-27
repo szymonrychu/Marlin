@@ -54,7 +54,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN  32
+  #define Z_MIN_PROBE_PIN  9
 #endif
 
 //
@@ -84,11 +84,17 @@
 #define E2_DIR_PIN         28
 #define E2_ENABLE_PIN      39
 
+
+#define X_CS_PIN           30
+#define Y_CS_PIN           31
+#define Z_CS_PIN           14
+#define E0_CS_PIN          15
+
 //
 // Temperature Sensors
 //
 #if TEMP_SENSOR_0 == -1
-  #define TEMP_0_PIN        A9   // Analog Input (connector *K1* on RUMBA thermocouple ADD ON is used)
+  #define TEMP_0_PIN        6   // Analog Input (connector *K1* on RUMBA thermocouple ADD ON is used)
 #else
   #define TEMP_0_PIN       10   // Analog Input (default connector for thermistor *T0* on rumba board is used)
 #endif
@@ -117,9 +123,9 @@
 //
 // Heaters / Fans
 //
-#define HEATER_0_PIN        3
+#define HEATER_0_PIN        6
 #define HEATER_1_PIN        2
-#define HEATER_2_PIN        6
+#define HEATER_2_PIN        3
 #define HEATER_3_PIN        8
 #define HEATER_BED_PIN      9
 
