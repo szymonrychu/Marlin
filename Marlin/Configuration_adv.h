@@ -951,17 +951,17 @@
    */
 
   #define R_SENSE           0.11  // R_sense resistor for SilentStepStick2130
-  #define HOLD_MULTIPLIER    0.5  // Scales down the holding current from run current
+  #define HOLD_MULTIPLIER    0.3  // Scales down the holding current from run current
   #define INTERPOLATE          1  // Interpolate X/Y/Z_MICROSTEPS to 256
 
-  #define X_CURRENT          800  // rms current in mA. Multiply by 1.41 for peak current.
+  #define X_CURRENT          636  // rms current in mA. Multiply by 1.41 for peak current.
   #define X_MICROSTEPS        32  // 0..256
 
-  #define Y_CURRENT          800
+  #define Y_CURRENT          636
   #define Y_MICROSTEPS        32
 
   #define Z_CURRENT          800
-  #define Z_MICROSTEPS        32
+  #define Z_MICROSTEPS        16
 
   //#define X2_CURRENT      1000
   //#define X2_MICROSTEPS     16
@@ -972,7 +972,7 @@
   //#define Z2_CURRENT      1000
   //#define Z2_MICROSTEPS     16
 
-  #define E0_CURRENT         800
+  #define E0_CURRENT         636
   #define E0_MICROSTEPS       32
 
   //#define E1_CURRENT      1000
@@ -991,7 +991,7 @@
    * Use Trinamic's ultra quiet stepping mode.
    * When disabled, Marlin will use spreadCycle stepping mode.
    */
-  #define STEALTHCHOP
+  //#define STEALTHCHOP
 
   /**
    * Let Marlin automatically control stepper current.
@@ -1010,7 +1010,7 @@
 
   #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP          50  // [mA]
-    #define AUTO_ADJUST_MAX     1300  // [mA], 1300mA_rms = 1840mA_peak
+    #define AUTO_ADJUST_MAX      636  // [mA], 1300mA_rms = 1840mA_peak
     #define REPORT_CURRENT_CHANGE
   #endif
 
@@ -1020,7 +1020,7 @@
    * STEALTHCHOP needs to be enabled.
    * M913 X/Y/Z/E to live tune the setting
    */
-  #define HYBRID_THRESHOLD
+  //#define HYBRID_THRESHOLD
 
   #define X_HYBRID_THRESHOLD     100  // [mm/s]
   #define X2_HYBRID_THRESHOLD    100
@@ -1049,8 +1049,8 @@
   #define SENSORLESS_HOMING
 
   #if ENABLED(SENSORLESS_HOMING)
-    #define X_HOMING_SENSITIVITY  8
-    #define Y_HOMING_SENSITIVITY  8
+    #define X_HOMING_SENSITIVITY 19
+    #define Y_HOMING_SENSITIVITY 19
   #endif
 
   /**
@@ -1064,7 +1064,36 @@
    *   stepperX.interpolate(0); \
    * }
    */
-  #define  TMC_ADV() {  }
+  #define  TMC_ADV() { \
+   stepperX.external_ref(1); \
+   stepperY.external_ref(1); \
+   stepperX.blank_time(24);\
+   stepperY.blank_time(24);\
+   stepperX.off_time(2);\
+   stepperY.off_time(2);\
+   stepperX.hysterisis_start(0);\
+   stepperY.hysterisis_start(0);\
+   stepperX.hysterisis_low(13); \
+   stepperY.hysterisis_low(13); \
+   stepperX.run_current(31);\
+   stepperY.run_current(31);\
+   stepperX.hold_current(12);\
+   stepperY.hold_current(12);\
+   stepperX.power_down_delay(2); \
+   stepperY.power_down_delay(2); \
+   stepperX.coolstep_min_speed(300);\ 
+   stepperY.coolstep_min_speed(300);\
+   stepperX.sg_min(4);\
+   stepperY.sg_min(4);\
+   stepperX.sg_max(10);\
+   stepperY.sg_max(10);\
+   stepperX.smart_min_current(1);\
+   stepperY.smart_min_current(1);\
+   stepperX.sg_step_width(8);\
+   stepperY.sg_step_width(8);\
+   stepperX.sg_current_decrease(32);\
+   stepperY.sg_current_decrease(32);\
+  }
 
 #endif // HAVE_TMC2130
 
