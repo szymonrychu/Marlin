@@ -1066,6 +1066,10 @@
    */
   #define  TMC_ADV() { \
    stepperZ.stealthChop(1);\
+   stepperX.sg_stall_value(-20);\
+   stepperY.sg_stall_value(-20);\
+   stepperX.stealth_freq(3);\
+   stepperY.stealth_freq(3);\
   }
 
 #endif // HAVE_TMC2130
