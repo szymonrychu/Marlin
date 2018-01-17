@@ -955,13 +955,13 @@
   #define INTERPOLATE          1  // Interpolate X/Y/Z_MICROSTEPS to 256
 
   #define X_CURRENT         1000  // rms current in mA. Multiply by 1.41 for peak current.
-  #define X_MICROSTEPS        32  // 0..256
+  #define X_MICROSTEPS       256  // 0..256
 
   #define Y_CURRENT         1000
-  #define Y_MICROSTEPS        32
+  #define Y_MICROSTEPS       256
 
   #define Z_CURRENT         1000
-  #define Z_MICROSTEPS        16
+  #define Z_MICROSTEPS       256
 
   //#define X2_CURRENT      1000
   //#define X2_MICROSTEPS     16
@@ -972,8 +972,8 @@
   //#define Z2_CURRENT      1000
   //#define Z2_MICROSTEPS     16
 
-  #define E0_CURRENT         636
-  #define E0_MICROSTEPS       32
+  #define E0_CURRENT         800
+  #define E0_MICROSTEPS      256
 
   //#define E1_CURRENT      1000
   //#define E1_MICROSTEPS     16
@@ -1065,34 +1065,7 @@
    * }
    */
   #define  TMC_ADV() { \
-   stepperX.external_ref(1); \
-   stepperY.external_ref(1); \
-   stepperX.blank_time(24);\
-   stepperY.blank_time(24);\
-   stepperX.off_time(2);\
-   stepperY.off_time(2);\
-   stepperX.hysterisis_start(0);\
-   stepperY.hysterisis_start(0);\
-   stepperX.hysterisis_low(13); \
-   stepperY.hysterisis_low(13); \
-   stepperX.run_current(31);\
-   stepperY.run_current(31);\
-   stepperX.hold_current(12);\
-   stepperY.hold_current(12);\
-   stepperX.power_down_delay(2); \
-   stepperY.power_down_delay(2); \
-   stepperX.coolstep_min_speed(300);\ 
-   stepperY.coolstep_min_speed(300);\
-   stepperX.sg_min(4);\
-   stepperY.sg_min(4);\
-   stepperX.sg_max(10);\
-   stepperY.sg_max(10);\
-   stepperX.smart_min_current(1);\
-   stepperY.smart_min_current(1);\
-   stepperX.sg_step_width(8);\
-   stepperY.sg_step_width(8);\
-   stepperX.sg_current_decrease(32);\
-   stepperY.sg_current_decrease(32);\
+   stepperZ.stealthChop(1);\
   }
 
 #endif // HAVE_TMC2130
