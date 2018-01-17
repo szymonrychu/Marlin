@@ -954,13 +954,13 @@
   #define HOLD_MULTIPLIER    0.3  // Scales down the holding current from run current
   #define INTERPOLATE          1  // Interpolate X/Y/Z_MICROSTEPS to 256
 
-  #define X_CURRENT          636  // rms current in mA. Multiply by 1.41 for peak current.
+  #define X_CURRENT         1000  // rms current in mA. Multiply by 1.41 for peak current.
   #define X_MICROSTEPS        32  // 0..256
 
-  #define Y_CURRENT          636
+  #define Y_CURRENT         1000
   #define Y_MICROSTEPS        32
 
-  #define Z_CURRENT          800
+  #define Z_CURRENT         1000
   #define Z_MICROSTEPS        16
 
   //#define X2_CURRENT      1000
@@ -1010,7 +1010,7 @@
 
   #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP          50  // [mA]
-    #define AUTO_ADJUST_MAX      636  // [mA], 1300mA_rms = 1840mA_peak
+    #define AUTO_ADJUST_MAX     1300  // [mA], 1300mA_rms = 1840mA_peak
     #define REPORT_CURRENT_CHANGE
   #endif
 
@@ -1049,8 +1049,8 @@
   #define SENSORLESS_HOMING
 
   #if ENABLED(SENSORLESS_HOMING)
-    #define X_HOMING_SENSITIVITY 19
-    #define Y_HOMING_SENSITIVITY 19
+    #define X_HOMING_SENSITIVITY  8
+    #define Y_HOMING_SENSITIVITY  8
   #endif
 
   /**
