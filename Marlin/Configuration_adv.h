@@ -1068,10 +1068,10 @@
    stepperZ.stealthChop(1);\
    stepperX.sg_stall_value(-20);\
    stepperY.sg_stall_value(-20);\
-   stepperX.off_time(0);\
-   stepperY.off_time(0);\
-   stepperZ.off_time(0);\
-   stepperE0.off_time(0);\
+   stepperX.off_time(4);\
+   stepperY.off_time(4);\
+   stepperZ.off_time(4);\
+   stepperE0.off_time(4);\
   }
 
 #endif // HAVE_TMC2130
