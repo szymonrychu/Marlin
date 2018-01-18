@@ -1070,6 +1070,10 @@
    stepperY.sg_stall_value(-20);\
    stepperX.stealth_freq(3);\
    stepperY.stealth_freq(3);\
+   stepperX.off_time(3);\
+   stepperY.off_time(3);\
+   stepperZ.off_time(3);\
+   stepperE.off_time(3);\
   }
 
 #endif // HAVE_TMC2130
