@@ -1073,7 +1073,7 @@
    stepperX.off_time(3);\
    stepperY.off_time(3);\
    stepperZ.off_time(3);\
-   stepperE.off_time(3);\
+   stepperE0.off_time(3);\
   }
 
 #endif // HAVE_TMC2130
