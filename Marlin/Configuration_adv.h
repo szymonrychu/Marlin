@@ -1010,7 +1010,7 @@
 
   #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP          50  // [mA]
-    #define AUTO_ADJUST_MAX     1300  // [mA], 1300mA_rms = 1840mA_peak
+    #define AUTO_ADJUST_MAX     800  // [mA], 1300mA_rms = 1840mA_peak
     #define REPORT_CURRENT_CHANGE
   #endif
 
