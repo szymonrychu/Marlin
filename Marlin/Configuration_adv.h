@@ -960,7 +960,7 @@
   #define Y_CURRENT         1000
   #define Y_MICROSTEPS       32
 
-  #define Z_CURRENT         1000
+  #define Z_CURRENT         800
   #define Z_MICROSTEPS       32
 
   //#define X2_CURRENT      1000
@@ -991,7 +991,7 @@
    * Use Trinamic's ultra quiet stepping mode.
    * When disabled, Marlin will use spreadCycle stepping mode.
    */
-  //#define STEALTHCHOP
+  #define STEALTHCHOP
 
   /**
    * Let Marlin automatically control stepper current.
