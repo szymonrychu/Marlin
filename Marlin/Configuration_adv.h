@@ -954,10 +954,10 @@
   #define HOLD_MULTIPLIER    0.3  // Scales down the holding current from run current
   #define INTERPOLATE          1  // Interpolate X/Y/Z_MICROSTEPS to 256
 
-  #define X_CURRENT         1000  // rms current in mA. Multiply by 1.41 for peak current.
+  #define X_CURRENT         800  // rms current in mA. Multiply by 1.41 for peak current.
   #define X_MICROSTEPS       32  // 0..256
 
-  #define Y_CURRENT         1000
+  #define Y_CURRENT         800
   #define Y_MICROSTEPS       32
 
   #define Z_CURRENT         800
@@ -1020,7 +1020,7 @@
    * STEALTHCHOP needs to be enabled.
    * M913 X/Y/Z/E to live tune the setting
    */
-  #define HYBRID_THRESHOLD
+  //#define HYBRID_THRESHOLD
 
   #define X_HYBRID_THRESHOLD     100  // [mm/s]
   #define X2_HYBRID_THRESHOLD    100
@@ -1065,15 +1065,15 @@
    * }
    */
    #define  TMC_ADV() {  }
-//  #define  TMC_ADV() { \
-//   stepperZ.stealthChop(1);\
-//   stepperX.sg_stall_value(-20);\
-//   stepperY.sg_stall_value(-20);\
-//   stepperX.off_time(4);\
-//   stepperY.off_time(4);\
-//   stepperZ.off_time(4);\
-//   stepperE0.off_time(4);\
-//  }
+   /*#define  TMC_ADV() { \
+      stepperZ.stealthChop(1);\
+      stepperX.sg_stall_value(-20);\
+      stepperY.sg_stall_value(-20);\
+      stepperX.off_time(4);\
+      stepperY.off_time(4);\
+      stepperZ.off_time(4);\
+      stepperE0.off_time(4);\
+    }*/
 
 #endif // HAVE_TMC2130
 
