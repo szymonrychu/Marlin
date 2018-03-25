@@ -1064,16 +1064,37 @@
    *   stepperX.interpolate(0); \
    * }
    */
-   #define  TMC_ADV() {  }
-   /*#define  TMC_ADV() { \
-      stepperZ.stealthChop(1);\
-      stepperX.sg_stall_value(-20);\
-      stepperY.sg_stall_value(-20);\
-      stepperX.off_time(4);\
-      stepperY.off_time(4);\
-      stepperZ.off_time(4);\
-      stepperE0.off_time(4);\
-    }*/
+   //#define  TMC_ADV() {  }
+   #define  TMC_ADV() { \
+     stepperX.external_ref(1); \
+     stepperY.external_ref(1); \
+     stepperX.blank_time(24);\
+     stepperY.blank_time(24);\
+     stepperX.off_time(2);\
+     stepperY.off_time(2);\
+     stepperX.hysterisis_start(0);\
+     stepperY.hysterisis_start(0);\
+     stepperX.hysterisis_low(13); \
+     stepperY.hysterisis_low(13); \
+     stepperX.run_current(31);\
+     stepperY.run_current(31);\
+     stepperX.hold_current(12);\
+     stepperY.hold_current(12);\
+     stepperX.power_down_delay(2); \
+     stepperY.power_down_delay(2); \
+     stepperX.coolstep_min_speed(300);\
+     stepperY.coolstep_min_speed(300);\
+     stepperX.sg_min(4);\
+     stepperY.sg_min(4);\
+     stepperX.sg_max(10);\
+     stepperY.sg_max(10);\
+     stepperX.smart_min_current(1);\
+     stepperY.smart_min_current(1);\
+     stepperX.sg_step_width(8);\
+     stepperY.sg_step_width(8);\
+     stepperX.sg_current_decrease(32);\
+     stepperY.sg_current_decrease(32);\
+   }
 
 #endif // HAVE_TMC2130
 
