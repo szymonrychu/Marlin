@@ -676,7 +676,7 @@
 //  (0,0)
 #define X_PROBE_OFFSET_FROM_EXTRUDER 22  // X offset: -left  +right  [of the nozzle]
 #define Y_PROBE_OFFSET_FROM_EXTRUDER 9  // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER -0.45 //-0.65   // Z offset: -below +above  [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -0.05 //-0.65   // Z offset: -below +above  [the nozzle]
 // dodaj jesli za nisko jest glowica
 // odejmij jesli za wysoko
 
@@ -914,12 +914,12 @@
   // 3 arbitrary points to probe.
   // A simple cross-product is used to estimate the plane of the bed.
   #define ABL_PROBE_PT_1_X 50
-  #define ABL_PROBE_PT_1_Y 150
+  #define ABL_PROBE_PT_1_Y 180
 
   #define ABL_PROBE_PT_2_X 50
   #define ABL_PROBE_PT_2_Y 50
 
-  #define ABL_PROBE_PT_3_X 150
+  #define ABL_PROBE_PT_3_X 180
   #define ABL_PROBE_PT_3_Y 50
 
 #elif ENABLED(AUTO_BED_LEVELING_UBL)
