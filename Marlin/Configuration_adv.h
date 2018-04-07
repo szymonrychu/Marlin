@@ -1074,8 +1074,6 @@
      stepperY.off_time(2);\
      stepperX.hysterisis_start(0);\
      stepperY.hysterisis_start(0);\
-     stepperX.hysterisis_low(13); \
-     stepperY.hysterisis_low(13); \
      stepperX.run_current(31);\
      stepperY.run_current(31);\
      stepperX.hold_current(12);\
