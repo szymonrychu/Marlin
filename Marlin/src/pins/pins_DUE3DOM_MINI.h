@@ -101,6 +101,11 @@
 #define SDSS                4
 #define PS_ON_PIN          40
 
+#define X_CS_PIN           29
+#define Y_CS_PIN           27
+#define Z_CS_PIN           25
+#define E0_CS_PIN          23
+
 //
 // LCD / Controller
 //
