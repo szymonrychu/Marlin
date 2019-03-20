@@ -195,9 +195,9 @@
  * The fan will turn on automatically whenever any stepper is enabled
  * and turn off after a set period after all steppers are turned off.
  */
-//#define USE_CONTROLLER_FAN
+#define USE_CONTROLLER_FAN
 #if ENABLED(USE_CONTROLLER_FAN)
-  //#define CONTROLLER_FAN_PIN -1        // Set a custom pin for the controller fan
+  #define CONTROLLER_FAN_PIN 12        // Set a custom pin for the controller fan
   #define CONTROLLERFAN_SECS 60          // Duration in seconds for the fan to run after all motors are disabled
   #define CONTROLLERFAN_SPEED 255        // 255 == full speed
 #endif
@@ -236,7 +236,7 @@
  * Multiple extruders can be assigned to the same pin in which case
  * the fan will turn on when any selected extruder is above the threshold.
  */
-#define E0_AUTO_FAN_PIN -1
+#define E0_AUTO_FAN_PIN 9
 #define E1_AUTO_FAN_PIN -1
 #define E2_AUTO_FAN_PIN -1
 #define E3_AUTO_FAN_PIN -1
@@ -1264,13 +1264,13 @@
   #define HOLD_MULTIPLIER    0.5  // Scales down the holding current from run current
   #define INTERPOLATE       true  // Interpolate X/Y/Z_MICROSTEPS to 256
 
-  #define X_CURRENT          800  // rms current in mA. Multiply by 1.41 for peak current.
+  #define X_CURRENT          886  // rms current in mA. Multiply by 1.41 for peak current.
   #define X_MICROSTEPS       256  // 0..256
 
-  #define Y_CURRENT          800
+  #define Y_CURRENT          886
   #define Y_MICROSTEPS       256
 
-  #define Z_CURRENT          800
+  #define Z_CURRENT          425
   #define Z_MICROSTEPS       256
 
   #define X2_CURRENT         800
@@ -1285,7 +1285,7 @@
   #define Z3_CURRENT         800
   #define Z3_MICROSTEPS       16
 
-  #define E0_CURRENT         800
+  #define E0_CURRENT         425
   #define E0_MICROSTEPS      256
 
   #define E1_CURRENT         800
