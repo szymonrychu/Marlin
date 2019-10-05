@@ -243,6 +243,7 @@
 #define BOARD_ARCHIM1                 3023  // UltiMachine Archim1 (with DRV8825 drivers)
 #define BOARD_ARCHIM2                 3024  // UltiMachine Archim2 (with TMC2130 drivers)
 #define BOARD_ALLIGATOR               3025  // Alligator Board R2
+#define BOARD_DUE3DOM_LE              3026   // DUE3DOM LE for Arduino DUE
 
 //
 // SAM3X8C ARM Cortex M3
